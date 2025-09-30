@@ -1,0 +1,7 @@
+#uploading-animation {
+  display: none;
+}
+
+#uploading-animation.is-visible {
+  display: block;
+}
