@@ -94,6 +94,7 @@ function draw() {
     scale(sBass);
     rotate(frameCount * -0.5);
     line(mBass, radius / 2, radius, radius);
+    // arcs are fun
     arc(mBass, radius, radius * 2, radius * 2, mBass, mBass + 20);
     pop();
 
@@ -102,6 +103,7 @@ function draw() {
     strokeWeight(1);
     stroke(pal[1]);
     scale(sTreble);
+    // arcs are fun pt 2 electric boogaloo
     arc(mTreble, radius, radius + 10, radius - 10, mTreble, mTreble / 1.5);
     pop();
 
@@ -110,6 +112,7 @@ function draw() {
     strokeWeight(1);
     stroke(pal[0]);
     scale(sMid);
+    // arcs are fun pt 3 the bees knees
     arc(mMid, radius, radius / 0.8, radius * 2, mMid, mMid * 3);
     pop();
   }

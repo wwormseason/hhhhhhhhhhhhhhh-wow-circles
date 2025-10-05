@@ -1,3 +1,4 @@
+/* love custom fonts so much */
 @font-face {
   font-family: Enso;
   src: url(./assets/Enso-qWRq.ttf);
@@ -72,6 +73,7 @@ canvas {
   display: flex;
 }
 
+/* keeping this animation because animating in css is a pain */
 .p5_loading__inner span {
   display: block;
   width: 100px;
