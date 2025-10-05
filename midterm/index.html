@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Midding my Term</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" href="data:," />
+    <title>gughfdsgf</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
 
-  <body>
-    <div class="p5_loading" id="uploading-animation"></div>
-
+  <body class="demo-1">
+    <main class="site-wrapper">
+      <div class="content main">
+        <div class="canvas-wrapper">
+          <div id="p5_loading" class="p5_loading">
+            <div class="p5_loading__inner">
+              <span></span>
+            </div>
+          </div>
+          <div id="uploading-animation" class="p5_loading">
+            <div class="p5_loading__inner">
+              <span></span>
+            </div>
+          </div>
+          <canvas id="webglcanvas"></canvas>
+        </div>
+      </div>
+    </main>
     <script src="./lib/p5.js"></script>
     <script src="./lib/p5.sound.min.js"></script>
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

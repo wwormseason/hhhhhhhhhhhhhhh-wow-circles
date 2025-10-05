@@ -10,7 +10,6 @@ let pieces = 0,
   upAnim;
 
 let pal = ["#FFB997", "#F67E7D", "#843B62", "#0B032D"];
-
 let isUploading = false;
 
 function preload() {
@@ -38,7 +37,7 @@ function setup() {
 
   upAnim = select("#uploading-animation");
 
-  toggleBtn = createButton(audio.isPlaying() ? "Pause" : "Play");
+  toggleBtn = createButton("Play / Pause");
 
   upBtn = createFileInput(upload);
 
@@ -70,16 +69,16 @@ function draw() {
   let treble = fft.getEnergy("treble");
   let mid = fft.getEnergy("mid");
 
-  let mBass = map(bass, 0, 255, -radius, radius);
+  let mBass = map(bass, 0, 255, -100, 800);
   let mTreble = map(treble, 0, 255, -radius, radius);
   let mMid = map(mid, 0, 255, -radius, radius);
 
-  let sBass = map(bass, 0, 255, 1, 1.5);
+  let sBass = map(bass, 0, 255, 0, 0.8);
   let sTreble = map(treble, 0, 255, 1, 1.5);
   let sMid = map(mid, 0, 255, 1, 1.5);
 
-  piece = map(mouseX, 0, width, 4, 10);
-  radius = map(mouseY, 0, innerHeight, windowHeight / 6, windowHeight);
+  pieces = map(mouseX, 0, width, 4, 10);
+  radius = map(mouseY, 0, height, windowHeight / 4, windowHeight);
 
   translate(windowWidth / 2, windowHeight / 2);
 
@@ -90,22 +89,20 @@ function draw() {
 
     // Bass
     push();
-    strokeWeight(3);
+    strokeWeight(5);
     stroke(pal[2]);
     scale(sBass);
-    rotate(frameCount * 0.5);
+    rotate(frameCount * -0.5);
     line(mBass, radius / 2, radius, radius);
-    // arc(mBass, radius, radius / 4, radius / 4, mBass, mBass + 20);
+    arc(mBass, radius, radius * 2, radius * 2, mBass, mBass + 20);
     pop();
 
     // Treble
     push();
-    strokeWeight(2);
+    strokeWeight(1);
     stroke(pal[1]);
     scale(sTreble);
-    rotate(frameCount * 2);
-    line(mTreble, radius / 5, radius / 2, radius / 2);
-    line(mTreble, radius, radius * 2, radius * 2);
+    arc(mTreble, radius, radius + 10, radius - 10, mTreble, mTreble / 1.5);
     pop();
 
     // Mid
@@ -113,9 +110,7 @@ function draw() {
     strokeWeight(1);
     stroke(pal[0]);
     scale(sMid);
-    rotate(frameCount / 10);
-    line(mMid, radius / 2, radius, radius);
-    // circle(mMid, radius, radius / 3);
+    arc(mMid, radius, radius / 0.8, radius * 2, mMid, mMid * 3);
     pop();
   }
 }
